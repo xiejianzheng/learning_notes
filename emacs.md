@@ -10,8 +10,19 @@
 	然后就可以使用Shift-Up, Shift-Down, Shift-left, Shift-right在window间移动。
 	
 ## magit
+
+	C-x g(magit-status) 可以激活Magit Status Buffer,Status Buffer中会显示当前仓库的状态。
+
+	TAB: 展开当前条目
+	?: 显示帮助
+	s: stage 当前选中的文件
+	u: unstage 选中的文件
 	
-### 显示仓库当前状态
-	C-x g : 相当于git status， 会在emacs下方新建一个window显示当前仓库的内容。
-	按tab： 可以展开缩起来的*">"*块。
+	d: 进入diff模式
+	c: 进入commit模式
+	
+	
+	
+	
+
 	
