@@ -17,9 +17,9 @@
 	?: 显示帮助
 	s: stage 当前选中的文件
 	u: unstage 选中的文件
-	
-	d: 进入diff模式
-	c: 进入commit模式
+	l: 进入log模式
+	od: 进入diff模式
+	c: 进入commit模式 按C-c C-c 完成提交
 	
 	
 	
