@@ -1,4 +1,4 @@
-# 汇编语言
+# 汇编学习
 
 ## 计算机基础原理
 
@@ -44,7 +44,57 @@
 	
 	也就是说一个负数的补数就是： 一个加上它绝对值正好溢出的数。
 	在二进制中这个数可以通过：
-	    把这个负数的绝对值区反+1来得到。
+	    把这个负数的绝对值取反+1来得到。
 		这也就是计算器获取一个负数补码的方法。
 	    
+### 基础寄存器
+	
+	在最早的8086cpu中，寄存器有8个，每个都有专门的用途。
+	ax: accumulator for numeric operations (累加时用的)
+	bx: base register (数组访问用的)
+	cx: count register (记数用的，比方保存字符串的长度)
+	dx: data register (保存通用数据用的）
+	si: source index  (字符串复制时，用于保存源字符串的读偏移)
+	di: destination index (字符串复制时，用于保存目的字符的写偏移)
+	bp: base pointer (用于保存当前函数的栈帧首地址)
+	sp: stack pointer (保持当前栈顶位置)
+	
+## 汇编语言
+
+### yasm使用
+
+	yasm 是一个能生成gdb兼容调试信息的汇编编译器。
+	支持64bit的二进制的代码生成：  -f elf64
+	支持dwarf2格式的调试信息生成： -g dwarf2
+	
+#### 什么是DWARF
+
+	dwarf 是 Debugging with attributed record formats的缩写。
+	是大多数编译器使用的调试信息存储格式。
+	
+### 基本命令
+
+	segment .<段名>   段声明
+	
+	<变量名> db <值>   byte类型变量声明 (1byte)
+	<变量名> dw <值>   word类型变量声明 (2byte)
+	<变量名> dd <值>   double word类型变量声明 (4byte)
+	<变量名> dq <值>   quad word类型变量声明(8byte)
+	
+	<值>可以是浮点数或普通整数。
+	
+	例如：
+	           segment .data
+	           a     dd       0.0
+			   b     dd       122.5
+			   
+
+	mov <目标寄存器名> <常量>        移动常量到目标寄存器
+	mov <目标寄存器名> [<地址>]      复制地址指向的值到目标寄存器
+	mov <目标寄存器名> <源寄存器名>   移动源寄存器中的值到目标寄存器
+	
+	
+    
+	
+	
 	
