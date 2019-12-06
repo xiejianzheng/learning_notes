@@ -61,17 +61,34 @@
 	
 ## 汇编语言
 
+### 如何根据生成
+
 ### yasm使用
 
 	yasm 是一个能生成gdb兼容调试信息的汇编编译器。
-	支持64bit的二进制的代码生成：  -f elf64
-	支持dwarf2格式的调试信息生成： -g dwarf2
+	使用yasm时需要指明生成的二进制文件格式：
+		如果要生成64位的elf格式文件，需要指明参数 -f elf64
+	如果需要生成gdb兼容的调试信息：
+		则需要指明参数 -g dwarf2
+	yasm还可以生成list文件。
+		-l <输出的list文件名>
 	
-#### 什么是DWARF
+	yasm只能生成
+#### 什么是listfile
+	list文件是一个包含生成的机器码和汇编源码的对照文件。通过listfile能清晰地看懂生成的机器代码。
+	assemble的file分为3列。　
+		第一列为: list文件的行号
+		第二列为: 生成的机器代码所在段内的偏移
+		第三列为: 机器码对应的汇编源码
+		
+#### 什么是DWARF格式
 
 	dwarf 是 Debugging with attributed record formats的缩写。
 	是大多数编译器使用的调试信息存储格式。
 	
+	yasm支持的是dwarf2格式，该格式gdb也支持。
+	
+
 ### 基本命令
 
 	segment .<段名>   段声明

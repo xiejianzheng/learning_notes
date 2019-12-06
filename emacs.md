@@ -32,7 +32,9 @@
 	
 	使用 M-x windmove-default-keybindings 激活windmove
 	然后就可以使用Shift-Up, Shift-Down, Shift-left, Shift-right在window间移动。
-	
+
+### frame导航
+
 ## magit
 
 	C-x g(magit-status) 可以激活Magit Status Buffer,Status Buffer中会显示当前仓库的状态。
