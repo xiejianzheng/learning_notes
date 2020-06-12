@@ -27,7 +27,7 @@
 	526 Y SecondaryClOrdID	母单标识
 	 21 Y HandlInst         订单处理指令    1 直通交易 2 允许算法或人工处理 3 人工处理
 	 48 Y SecurityID
-	 58 Y Side				1 买入 2 卖出
+	 54 Y Side				1 买入 2 卖出
 	 60 Y TransactTime	委托时间
 	 38 Y OrderQty		委托数量
 	 40 Y OrdType		委托类型	1 市价(Market) 2 限价(Limit)
@@ -48,6 +48,8 @@
 						XSSC  沪港通
 
 	 58 N Text		备注		utf8
+
+	847 Y TargetStrategy	目标策略名	int
 
 ## ExecutionReport 35=8
 	 35 Y MsgType 		消息类型	8 Execution Report
