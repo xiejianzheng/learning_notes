@@ -64,7 +64,8 @@
 						4 Canceled
 						1 PartiallyFilled
 						2 Filled
-						D Restated 主动告警
+						D Restated 		主动告警
+						C Expired  		已超时
 
 	 39 Y OrdStatus		订单状态	0 New
 	 					8 Rejected
@@ -86,6 +87,7 @@
 
 	 60 Y TransactTime	委托时间
 	 58 N Text		备注		utf8
+	526 N SecondaryClOrdId  母单客户订单号
 	434 N CxlRejResponseTo	撤单拒绝原因	35=9时必须填
 	847 Y TargetStrategy    策略名 		母单对应的策略名
 
