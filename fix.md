@@ -1,6 +1,7 @@
 # fix协议学习
 
 ## 包格式
+
 	例如：登录包
 	8=fix4.2 			//BeginString 	fix版本标示
 	9=78	 			//BodyLength	包大小
@@ -14,6 +15,7 @@
 	10=019				//CheckSum
 
 ## SessionID格式
+
 	beginString
 	senderCompID
 	senderSubID
@@ -21,6 +23,7 @@
 	targetSubID
 
 ## NewOrderSingle 35=D
+
 	 35 Y MsgType 		消息类型	D NewOrderSingle
 	  1 N Account 		资金账号
 	 11 Y ClOrdID		客户端订单标号
@@ -52,6 +55,7 @@
 	847 Y TargetStrategy	目标策略名	int
 
 ## ExecutionReport 35=8
+
 	 35 Y MsgType 		消息类型	8 Execution Report
 	 37 Y OrderID		订单号
 	 11 Y ClOrdID		客户订单号
@@ -91,5 +95,5 @@
 	434 N CxlRejResponseTo	撤单拒绝原因	35=9时必须填
 	847 Y TargetStrategy    策略名 		母单对应的策略名
 
-## OrderCancel/Replace Request 35=G
+## OrderCancel/Replace Request 35=F
 
