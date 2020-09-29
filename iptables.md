@@ -143,7 +143,7 @@ raw表在netfilter中会以更高优先级注册。并且这个调用会在ip_co
 
 -g，--goto <链>
 	
-	与jump不同，goto后不会继续执行当前灵快快
+	与jump不同，goto后不会继续执行当前链
 
 
 ## 匹配扩展模块

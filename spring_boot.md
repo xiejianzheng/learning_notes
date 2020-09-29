@@ -60,5 +60,23 @@
 	活动轮廓注解可以作为元注解用来创建定制的组合注解。
 
 
+@ContextConfiguration注解
+	
+	@ContextConfiguration注解定义了一个类级别的元数据，用于决定如何加载和配置应用上下文为了集成测试。
+	1. 可以用于声明基于路径的资源位置(通过locations() 或 value() 属性)。
+	2. 可以用于声明基于组件类(通过classes()属性)
+
+@TestPropertySource注解
+
+	测试属性源注解是一个类级别的注解。用于配置属性文件 **位置** 和内联的 **属性**， 用于添加到环境的中的
+
+
+#SpringBoot注解总结
+
+@EnableAutoConfiguration注解
+
+	@EnableAutoConfiguration注解用于激活Spring应用上下文的自动配置功能。 尝试
+
+
 
 
