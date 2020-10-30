@@ -42,7 +42,7 @@ PatternLayout是一个灵活的布局，可以使用模式配置。
 3. pid{} processID 
 输出进程号
 
-4. tid threadId 
+4. t tid threadId 
 输出线程号
 
 5. m msg 
@@ -51,4 +51,43 @@ PatternLayout是一个灵活的布局，可以使用模式配置。
 6. n 
 输出平台分隔符
 
+7. p|level{level=label,level=label}
+输出日志事件的级别。 你可以以"level=label,level=label"的形式，提供一个日志级别到值的映射，这值就会替代日志级别的名字显示出来。
+
+例如: %level{WARN=W, DEBUG=D, ERROR=E, TRACE=T, INFO=I}
+
+8. F file
+输出是哪个文件产生这个日志事件的
+
+9. L line
+输出日志请求的发起行。
+
+
+# log4j2 Appender说明
+
+添加器是负责把LogEvent投递到他们的目的地的。
+每一个添加器都需要实现Appender接口。
+大多数添加器会从AbstractAppender处继承，并添加Lifecycle和Filterable接口的支持。
+
+Lifecycle接口允许组件在配置完成后进行初始化，并且能在关闭时做清理工作。
+
+Filterable接口允许组件支持过滤器附加到其身上，并在事件处理过程中执行。
+
+
+添加器通常只负责将事件数据写入目。在大多数情况下他们会代理事件数据的格式化职责到布局组件。
+一些添加器能包裹其他添加器。
+他可以
+1. 修改日志事件
+2. 处理添加器中的故障
+3. 根据高级筛选条件将事件路由到下级的添加器
+4. 或者提供不直接格式化事件以供查看的类似功能
+
+添加器总是有有一个名，这样它们就可以在日志器中被引用。
+
+## AsyncAppender
+
+
+# log4j2 全量异步化
+
+-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
 

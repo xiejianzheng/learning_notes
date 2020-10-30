@@ -29,6 +29,10 @@
 
 4. lower(E e)		（更小） 	返回这个集合中严格小于给定元素的最大元素
 
+
+## BlockingQueue
+BlockingQueue
+
 # 文件相关操作
 
 java8中nio的Files类提供了大量文件常见操作api。
