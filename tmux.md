@@ -13,6 +13,8 @@
 
 	C-b ,		: 设置标题
 
+	swap-window [-s 源窗口id] [-t 目标窗口id]
+
 ## pane相关
 	
 	C-b %		: 垂直分割面板

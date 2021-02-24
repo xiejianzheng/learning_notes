@@ -106,9 +106,82 @@ git不会让你切换分支。这最好清理好工作状态当你切换分支�
 主干原来指向c2，现在合并热补丁后，主干指向c4。
 
 
+它值得注意的这里是指定的工作，你做了的在你的热补丁分支中是没有包含在指定的文件在你的iss53分支中。
+如果你需要拉它进来，你可以合并你的master分支到你的iss53分支，通过执行 git merge master，或者你可以
+等待去集成那些改变直到你决定去拉iss53分支回到master分支后面。
+
+## 基础的合并
+
+想象一下，你已经决定那你的问题#53工作是完成并且准备好被合并到你的master分支。为了做到那，你将要合并iss53分支到master分支，
+很像你合并你的hotfix分支前面。所有你需要做的是检出你希望要合并到的分支，然后运行git merge 命令：
+
+	$ git checkout master
+	Switched to branch 'master'
+	$ git merge iss53
+	Merge made by the 'recursive' strategy.
+	index.html | 1 +
+	1 file changed, 1 insertion(+)
+
+这看上去和你之前做的合并hotfix分支时看上去有些不同。在这种场景下， 你的开发历史已经背离从老一点的点。
+
+	c0 <- c1 <- c2(公共祖先) <- c4（master 需要被合并到的快照）
+			^
+			|
+			----------- c3 <--- c5 (iss53 需要被合并的快照）
+
+替换仅仅是移动分支指针向前，git创建了一个新的快照，那结果是从3个路径合并且自动创建的一个新提交指向它。
+这是被引用为一个合并提交，并且是特别的，在那它有多个父亲。
+
+        
+	c4 <- c6 (新master）
+	      |
+	c5 <--|
+
+现在，那你的工作是被合并进来了，你不在需要iss53分支。你可以关闭问题在你的问题跟踪系统，并且删除对应的分支。
+
+	$ git branch -d iss53
+
+	
+## 基础合并冲突
+
+偶然地，这个过程不会顺利。如果你修改了相同文件的相同部分不同地在两个你正在合并的分支中。Git 不会有能力去清晰地合并它们。
+如果你的修复为问题53修改了相同的部分文件作为热修复分支，你会取一个合并冲突，那看上去像一些东西向一些东西想这些：
+
+	$ git merge iss53
+	Auto-merging index.html
+	CONFLICT （content）: Merger conflict in index.html
+	Automatic merge failed: fxi conflicts then commit the result.
+
+Git 没有 自动地创建一个新的合并提交。它已经中断了流程，当你解决冲突的时候。
+如果你想看哪个文件是没合并的在任何点在合并冲突后。你能运行git status:
+
+	$ git status
+	On branch master
+	You have unmerged paths.
+	  (fix conflicts and run "git commit")
+	Unmerged paths:
+	  (use "git add <file>..." to mark resolution)
+
+	    both modified:    index.html
+	no changes added to commit (use "git add" and/or "git commit -a")
 
 
+任何事情，那有合并冲突的并且没有被解决的被列为“未合并”。
 
+Git添加标准的冲突决策标注标志到指定的文件那有冲突的， 因此你可以打开它们手动解决这些冲突。
+
+你的文件包含一个部分，那看像是一些东西，像这样：
+	
+	<<<<<< HEAD:index.html
+	<div id="footer"> contract : email.support@github.com</div>
+	======
+	<div id="footer">
+	  please contact us at support@github.com
+	</div>
+	>>>>>> iss53:index.html
+
+这意味版本在头（你的主分支，因为那过去是什么你检出的当你过去运行合并指令时）是块的顶部部分，同时版本在你的iss53分支看上去像
+所有内容在底部部分
 
 
 
