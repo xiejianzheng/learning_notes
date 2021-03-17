@@ -107,6 +107,13 @@ $(函数名 参数列表)
 * $(words text)
 返回文本中的单词数量。
 因此，文本中的最后一个单词是$(word, $(words text), text)
+返回单词列表在text中以第s 单词个开始，第e个单词结束(包含)。
+合理的值s值从1开始，e可以从0开始。
+如：
+	$(wordlist 2,3, foo bar baz)
+
+返回 'bar baz'
+
 
 
 
