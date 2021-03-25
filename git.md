@@ -57,8 +57,11 @@ git checkout命令的作用是：切换分支或恢复工作树文件
 
 格式：
 
-	git checkout <分支名>
+	git checkout <分支>
 	为了准备在<分支>上工作，切换到它，通过更新index还有文件在工作树，并且通过HEAD指针指向<分支>, 本地文件的修改，在工作树中的修改都被保持了，所以它们可以被提交到<分支>
+
+	git checkout -b <新分支> [<开始点>]
+	指定-b选项，会导致创建一个新分支, 就像git-branch指令被调用了一样。
 
 ## git config 配置指令
 
@@ -96,6 +99,16 @@ alias.ci=commit
 * 配置列表
 
 git config -l (--list)
+
+* 乱码处理
+
+如果git log 乱码，
+可以使用 git config --global i18n.logOutputEncoding=UTF-8来处理，
+也可以使用 git config --global i18n.commitEncoding=UTF-8 来处理，
+因为，当调用git log 时， 如i18n.logOutputEncoding读取不到时，系统会尝试使用i18n.commitEncoding来解析日志。
+
+git status的乱码，
+需要用 git config --global core.quotepath false 来处理
 
 
 
