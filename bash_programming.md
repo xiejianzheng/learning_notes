@@ -278,8 +278,45 @@ for <arg> in <list>;do
 	commands...
 done
 
+## case 测试选择分支
+
+case 测试选择分支与C语言的switch分支的功能是类似的。
+都是根据条件转跳到不同的处理分支。
+
+格式如下：
+	case "$变量" in
+
+	"条件1")
+	指令。。。
+	;;
+
+	"条件2")
+	指令。。。
+	;;
 	
-		
+	esac
+
+case语句中的
+$变量是可以不加引号的，
+条件也可以不加，但是条件后面要加个右括号，表示条件描述结束，后续是开始处理代码，两个分号表示当前分支处理代码结束。
+在整个case语句结束后，需要使用esac来标识case语句结束。
+
+esac是什么意思呢？
+原来我以为是escape的缩写，但是后来我知道了，esac是case的反写，标识case结束。
+
+最早的Bourne shell是Steve Borne创建的，他是一位ALGOL68的工作者，
+所以Bourne shell的控制结构也是来源于algol68.
+algo68中就是用反向单词拼写作为块结束符的。
+如： case/esac, if/fi, do/od
+
+哪为什么for；do中没有用od做块结束标识呢？
+因为od已经是一个unix常用命令的名字。
+
+
+
+
+
+
 
 
 
