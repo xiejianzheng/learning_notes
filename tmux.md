@@ -15,6 +15,7 @@
 
 	swap-window [-s 源窗口id] [-t 目标窗口id]
 
+	C-b <		: 交换window，具体的交换方式会有菜单提示 
 ## pane相关
 	
 	C-b %		: 垂直分割面板

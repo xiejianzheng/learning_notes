@@ -17,3 +17,12 @@ decimal经常用于存储金钱相关的数据。
 
 UPDATE <表名> SET <列名>=<值> WHERE <条件>
 
+# 常见日期处理函数
+
+curdate(), current_date()：
+
+curdate() 会根据上下文返回两种不同类型的数据：
+
+字符串数据：缺省返回，在字符串上下文中，格式为"YYYY-MM-DD"
+
+数值数据：在数值计算上下文中返回，格式为 YYYYMMDD
