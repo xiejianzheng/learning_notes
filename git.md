@@ -103,8 +103,8 @@ git config -l (--list)
 * 乱码处理
 
 如果git log 乱码，
-可以使用 git config --global i18n.logOutputEncoding=UTF-8来处理，
-也可以使用 git config --global i18n.commitEncoding=UTF-8 来处理，
+可以使用 git config --global i18n.logOutputEncoding UTF-8来处理，
+也可以使用 git config --global i18n.commitEncoding UTF-8 来处理，
 因为，当调用git log 时， 如i18n.logOutputEncoding读取不到时，系统会尝试使用i18n.commitEncoding来解析日志。
 
 git status的乱码，
